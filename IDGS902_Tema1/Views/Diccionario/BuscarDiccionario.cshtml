@@ -1,0 +1,97 @@
+﻿@model IDGS902_Tema1.Models.Diccionario
+
+@{
+    ViewBag.Title = "BuscarDiccionario";
+}
+
+<div class="row">
+    <div class="col-12 text-center">
+        <h2>Diccionario</h2>
+    </div>
+
+    <form action="/" method="post"></form>
+
+    @using (Html.BeginForm())
+    {
+        <div>
+
+            @Html.LabelFor(model => model.PalabraBuscar, htmlAttributes:
+        new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.PalabraBuscar, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+
+        </div>
+        <br />
+        <div>
+
+            <div class="form-group">
+                <label class="col-form-label">Traducir:</label>
+
+                <div>
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(model => model.Idioma, "español")  Español
+                    </label>
+
+                    <label class="radio-inline">
+                        @Html.RadioButtonFor(model => model.Idioma, "inglés") Ingles
+                    </label>
+                </div>
+            </div>
+
+        </div>
+
+
+        <br />
+
+        <div>
+            <div class="form-group col-6">
+                <div>
+                    <input type="submit" name="name" value="Buscar" class="btn btn-warning" />
+                </div>
+            </div>
+        </div>
+
+    }
+
+
+    <div class="col-6 col-md-6 text-center">
+        @Html.Raw(@ViewBag.Traduccion)
+    </div>
+
+
+        <br />
+        @if (ViewBag.ContDicc == null || ViewBag.ContDicc.Length == 0)
+        {
+            
+        }
+        else
+        {
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>Español</th>
+                        <th>Inglés</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.ContDicc)
+                    {
+                        <tr>
+                            @foreach (string item2 in item.Split(','))
+                            {
+                                <td>
+                                    @item2
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+
+
+
+    </div>
+
+
+</div>

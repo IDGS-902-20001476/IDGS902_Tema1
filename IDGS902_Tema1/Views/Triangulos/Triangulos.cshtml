@@ -1,0 +1,76 @@
+﻿@model IDGS902_Tema1.Models.Triangulos
+
+@{
+    ViewBag.Title = "Triangulos";
+}
+
+<h1>Triángulos</h1>
+
+@using (Html.BeginForm())
+{
+    <div>
+        <div>
+            @Html.LabelFor(model => model.X1, htmlAttributes:
+          new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.X1, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Y1, htmlAttributes:
+         new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Y1, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+
+        </div>
+    </div>
+
+    <div>
+        <div>
+            @Html.LabelFor(model => model.X2, htmlAttributes:
+          new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.X2, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Y2, htmlAttributes:
+       new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Y2, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+
+        </div>
+    </div>
+
+    <div>
+     
+        <div>
+            @Html.LabelFor(model => model.X3, htmlAttributes:
+             new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.X3, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+
+        </div>
+        <div>
+            @Html.LabelFor(model => model.Y3, htmlAttributes:
+         new { @class = "control-label col-md-2" })
+
+            @Html.EditorFor(model => model.Y3, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+
+        </div>
+    </div>
+    <br/>
+    <div>
+        <input type="submit" value="Calcular" />
+    </div>
+}
+
+@if (Model != null)
+{
+    <h4>Resultado:</h4>
+    <p>Tipo de Triángulo: @Model.TipoTriangulo</p>
+    <p>Área del Triángulo: @Model.Area</p>
+}
+else
+{
+}

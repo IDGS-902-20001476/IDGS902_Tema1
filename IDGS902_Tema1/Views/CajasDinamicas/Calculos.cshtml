@@ -1,0 +1,20 @@
+﻿
+
+
+@{
+    ViewBag.Title = "Calculos";
+}
+
+<h2>La suma de los valores totales ingresados es: @ViewBag.SumaTotal</h2>
+
+
+@if (ViewBag.NumerosRepetidos != null)
+{
+    <h3>Números Repetidos:</h3>
+    <ul>
+        @foreach (var numero in ViewBag.NumerosRepetidos)
+        {
+            <li>@numero</li>
+        }
+    </ul>
+}

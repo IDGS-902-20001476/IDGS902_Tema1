@@ -1,0 +1,7 @@
+perro,dog
+hola,hello
+adios,bye
+amarillo,yellow
+rojo,red
+rosa,pink
+pelota,ball
